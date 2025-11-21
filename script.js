@@ -1,13 +1,4 @@
 // Preencher data/hora atual automaticamente
-const firebaseConfig = {
-  apiKey: "AIzaSyCWyCtdNQCPay2qIZZFAefCHuS8UnKg0RA",
-  authDomain: "lavanderiaessencia-97705.firebaseapp.com",
-  databaseURL: "https://lavanderiaessencia-97705-default-rtdb.firebaseio.com",
-  projectId: "lavanderiaessencia-97705",
-  storageBucket: "lavanderiaessencia-97705.firebasestorage.app",
-  messagingSenderId: "926952648643",
-  appId: "1:926952648643:web:dc368bb5f3644d5c12d776"
-};
 
 const now = new Date();
 now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
@@ -33,5 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.display = "none";
         }
     });
+
 
 });
