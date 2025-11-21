@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavanda Essências - Registrar Peça</title>
+
+  <!-- Manifest da PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#f3d197">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/logo_V4.ico" type="image/x-icon">
+
+</head>
+<body>
+
+  <div class="container">
+    <h2>Registrar Peça</h2>
+
+    <form id="formPeca">
+      <div class="row">
+        <div class="input-box">
+          <select id="cliente_id" name="cliente_id" required>
+             <option value="" disabled selected>Carregando clientes...</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-box">
+          <input type="text" id="descricao" name="descricao" required>
+          <label for="descricao">Descrição</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-box">
+          <input type="text" id="servico" name="servico" required>
+          <label for="servico">Serviço</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-box">
+          <input type="datetime-local" id="datahora" name="datahora" required>
+          <label for="datahora">Data e hora</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-box">
+          <input type="file" id="foto" name="foto" accept="image/*" capture="environment">
+          <label for="foto">Foto da peça (opcional)</label>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="reset" class="discard">Cancelar</button>
+        <button type="submit" class="save">Registrar Peça</button>
+      </div>
+
+    </form>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <h2>Peça Registrada!</h2>
+        <p>A peça foi registrada com sucesso.</p>
+        <div class="buttons">
+          <button id="fecharModal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="script.js"></script>
+
+  <!-- Registro do Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then(() => console.log("Service Worker registrado com sucesso!"))
+        .catch(err => console.error("Erro ao registrar Service Worker:", err));
+    }
+  </script>
+
+</body>
+</html>

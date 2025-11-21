@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+:root {
+  --roxo-escuro: #562e7c;
+  --roxo-medio: #6c4590;
+  --roxo-claro: #78519f;
+  --marrom: #271717;
+  --verde-escuro: #326e42;
+  --verde-medio: #438450;
+  --verde-claro: #65a867;
+  --marrom-claro: #47312b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--roxo-claro), var(--verde-medio));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@media (max-width: 768px){
+  body {
+    padding: 0.5rem;
+  }
+}
+
+.container {
+  background: #fff;
+  width: 70%;
+  max-width: 80%;
+  padding: 2.5rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  color: var(--texto);
+}
+
+.container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--roxo-medio);
+}
+
+.row {
+  display: flexbox;
+  justify-content: space-between;
+  padding: auto;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.input-box {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box input {
+  color: var(--preto);
+  border: 2px solid #b6b6b6;
+  background: transparent;
+  border-radius: 8px;
+  width: 100%;
+  height: 60px;
+  padding: 1rem;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.input-box label {
+  color: #b6b6b6;
+  padding: 0 5px;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 1rem;
+  pointer-events: none;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: 0;
+  font-size: 0.75rem;
+  color: var(--verde-escuro);
+  background-color: #fff;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0rem;
+}
+
+button {
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+button.discard {
+  background: transparent;
+  border: 2px solid var(--roxo-claro);
+  color: var(--roxo-claro);
+}
+
+button.discard:hover {
+  background: var(--roxo-claro);
+  color: #fff;
+}
+
+button.save {
+  background: var(--verde-claro);
+  color: #fff;
+}
+
+button.save:hover {
+  background: var(--verde-escuro);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.938);
+  justify-content: center; 
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Caixa */
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 40px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.35s ease;
+}
+
+/* Título e texto */
+.modal h2 {
+  color: #6171b5;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  color: #141414;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+/* Botão */
+.modal button {
+  background-color: #6171b5;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.modal button:hover {
+  background-color: #4c5ba3;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
